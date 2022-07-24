@@ -1,0 +1,15 @@
+export type Props = {
+  title: string;
+  children: React.ReactNode;
+};
+
+export const Section: React.FC<Props> = (props) => {
+  return (
+    <section className="mb-10">
+      <h2 className="text-base sm:text-lg md:text-xl font-bold text-main">
+        {props.title}
+      </h2>
+      <div>{props.children}</div>
+    </section>
+  );
+};
