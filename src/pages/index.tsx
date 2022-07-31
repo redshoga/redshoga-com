@@ -1,17 +1,18 @@
 import type { NextPage } from "next";
-import { MetaTag } from "../components/MetaTag";
 import { articles } from "../contants/articles";
 
+// TODO
+// ページング, タグフィルターの付与
 const Page: NextPage = () => {
   return (
     <>
-      <MetaTag />
       <ul>
         {articles.map((article, idx) => (
           <li key={idx} className="mt-4">
-            <a href={article.url} className="text-main hover:opacity-70">
-              <div className="text-sub text-sm">{article.createdAt}</div>
-              <div>{article.title}</div>
+            <a href={article.url} className="hover:opacity-70">
+              <div className="text-lg font-bold">{article.title}</div>
+              <div className="text-sub">{article.overview}</div>
+              <div className="text-sub">{article.createdAt}</div>
             </a>
           </li>
         ))}
