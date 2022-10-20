@@ -52,7 +52,7 @@ export const contentItems: {
     title: "Splatoon3 S+10 記念ツイート",
     overview: "うれしい",
     createdAt: new Date("2022/10/07"),
-    imgHref: createLink("S+10.jpeg"),
+    imgHref: createLink("s-plus-10.jpeg"),
   },
   {
     url: "https://github.com/redshoga/redshoga-com",
