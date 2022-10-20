@@ -28,4 +28,17 @@ export const serviceLinks: {
     siteUrl: "https://note.com/redshoga",
     size: 20,
   },
+  {
+    alt: "Filmarks",
+    iconHref: "/service-icons/filmarks.png",
+    siteUrl: "https://filmarks.com/users/redshoga",
+    size: 28,
+  },
+  {
+    alt: "DM",
+    iconHref: "/service-icons/dm.svg",
+    siteUrl:
+      "https://www.twitter.com/messages/compose?recipient_id=929296428630867968",
+    size: 24,
+  },
 ];

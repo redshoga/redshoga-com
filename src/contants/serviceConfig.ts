@@ -1,4 +1,5 @@
 export const serviceConfig = {
   title: "redshoga.com",
-  description: "redshogaのいろいろ置き場",
+  description: "redshogaのよさげなコンテンツまとめ場",
+  metaDescription: "redshoga(いーふと)の主要なコンテンツをまとめたウェブサイト",
 };

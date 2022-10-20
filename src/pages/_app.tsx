@@ -6,15 +6,21 @@ import Head from "next/head";
 import Image from "next/image";
 import { serviceConfig } from "../contants/serviceConfig";
 import { serviceLinks } from "../contants/serviceLinks";
+import { useRouter } from "next/router";
+import { navLinks } from "../contants/navLinks";
 
 export const MetaTag: React.FC = () => (
   <Head>
     <title>{serviceConfig.title}</title>
     <link rel="icon" type="shortcut icon" href="/icon.png" />
+    <link rel="apple-touch-icon" href="/icon.png" />
+    <meta name="description" content={serviceConfig.metaDescription} />
   </Head>
 );
 
 const Header = () => {
+  const router = useRouter();
+
   return (
     <header className="flex flex-col items-center">
       <div className="mb-4">
@@ -31,7 +37,7 @@ const Header = () => {
 
       <p className="mb-8">{serviceConfig.description}</p>
 
-      <div className="flex gap-4 justify-center">
+      <div className="flex gap-4 justify-center mb-8">
         {serviceLinks.map(({ iconHref, siteUrl, alt, size }, idx) => (
           <Link href={siteUrl} passHref key={idx}>
             <a
@@ -44,6 +50,19 @@ const Header = () => {
           </Link>
         ))}
       </div>
+
+      <ul className="flex gap-4">
+        {navLinks.map((link, idx) => (
+          <li
+            key={idx}
+            className={link.active(router.asPath) ? "font-bold" : ""}
+          >
+            <Link href={link.href}>
+              <a className="hover:underline">{link.label}</a>
+            </Link>
+          </li>
+        ))}
+      </ul>
     </header>
   );
 };
