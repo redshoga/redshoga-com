@@ -9,6 +9,8 @@ const client = createClient({
   apiKey: process.env.MICRO_CMS_API_KEY || "",
 });
 
+const LIST_LIMIT_COUNT = 1000;
+
 // コンテンツ (トップページ)
 export type Content = {
   title: string;
@@ -31,10 +33,16 @@ export type Page = {
 
 export const cmsClient = {
   getAllTags: async () => {
-    return client.getList<Tag>({ endpoint: "tags" });
+    return client.getList<Tag>({
+      endpoint: "tags",
+      queries: { limit: LIST_LIMIT_COUNT },
+    });
   },
   getAllContents: async () => {
-    return client.getList<Content>({ endpoint: "contents" });
+    return client.getList<Content>({
+      endpoint: "contents",
+      queries: { limit: LIST_LIMIT_COUNT },
+    });
   },
   getPageDetail: async (args: { contentId: string }) => {
     return client.getListDetail<Page>({
@@ -46,6 +54,9 @@ export const cmsClient = {
     return (
       await client.getList<Page>({
         endpoint: "pages",
+        queries: {
+          limit: LIST_LIMIT_COUNT,
+        },
       })
     ).contents.map((v) => v.id);
   },
