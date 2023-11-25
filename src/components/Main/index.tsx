@@ -26,7 +26,7 @@ export const Main = () => {
         <ColorThemeButton />
       </div>
 
-      <main className="flex flex-col gap-4 items-center">
+      <main className="flex flex-col gap-6 items-center">
         <Link href="/" passHref>
           <Image
             src="/profile/icon.png"
@@ -37,7 +37,7 @@ export const Main = () => {
           />
         </Link>
 
-        <div className="flex flex-col gap-4 items-center">
+        <div className="flex flex-col gap-6 items-center">
           <div className="flex flex-col gap-2 items-center">
             <h1 className="text-2xl font-bold">
               <Link href="/" passHref className="hover:underline">
@@ -49,7 +49,7 @@ export const Main = () => {
             </p>
           </div>
 
-          <div className="flex gap-3">
+          <div className="flex gap-6 flex-wrap justify-center">
             {serviceLinks.map(
               ({ iconHref, siteUrl, alt, size, description }, idx) => (
                 <div className="flex flex-col gap-2 items-center">
