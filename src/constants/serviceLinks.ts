@@ -41,6 +41,13 @@ export const serviceLinks: {
     description: "映画",
   },
   {
+    alt: "pixiv",
+    iconHref: "/service-icons/pixiv.svg",
+    siteUrl: "https://www.pixiv.net/users/36954119",
+    size: 28,
+    description: "お絵かき",
+  },
+  {
     alt: "DM",
     iconHref: "/service-icons/dm.svg",
     siteUrl:
