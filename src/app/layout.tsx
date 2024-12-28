@@ -18,7 +18,7 @@ export default function RootLayout({
   return (
     <html lang="ja" className="scroll-smooth">
       <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID || ""} />
-      <body className="bg-slate-100 container py-12">{children}</body>
+      <body className="container py-12">{children}</body>
     </html>
   );
 }

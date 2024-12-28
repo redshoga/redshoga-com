@@ -12,7 +12,7 @@ export const ServiceIcons = () => {
               href={siteUrl}
               passHref
               key={idx}
-              className="w-12 h-12 rounded-full flex justify-center items-center hover:bg-gray-200"
+              className="w-12 h-12 rounded-full flex justify-center items-center hover:bg-gray-100"
               target="_blank"
               rel="noopener noreferrer"
             >

@@ -17,7 +17,7 @@ export const PostPage = (props: Props) => {
           <div className="text-sm text-gray-500 mb-12 flex items-center gap-4">
             <Link
               href="/"
-              className="flex items-center gap-2 font-bold group hover:opacity-50"
+              className="flex items-center gap-2 font-bold group hover:opacity-70"
             >
               <Image
                 src="/profile/icon.png"

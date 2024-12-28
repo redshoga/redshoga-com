@@ -12,7 +12,7 @@ export const TitleLogo = ({ variant }: Props) => {
     <Link href="/" passHref className="group">
       <div
         className={clsx(
-          "inline-flex justify-center items-center gap-2 hover:opacity-50",
+          "inline-flex justify-center items-center gap-2 hover:opacity-70",
           {
             "flex-col": variant === "full",
             "flex-row": variant === "compact",
