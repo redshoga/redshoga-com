@@ -1,13 +1,11 @@
+import { NotFoundPage } from "@/components/pages/NotFountPage";
+import { serviceConfig } from "@/constants/serviceConfig";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "404",
+  title: `404 Not Found | ${serviceConfig.title}`,
 };
 
 export default function Page() {
-  return (
-    <div>
-      <h1>404ページ</h1>
-    </div>
-  );
+  return <NotFoundPage />;
 }
