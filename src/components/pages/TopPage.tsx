@@ -1,10 +1,10 @@
 import Link from "next/link";
 import React from "react";
 import Image from "next/image";
-import { serviceLinks } from "../../constants/serviceLinks";
-import { colorTheme } from "../../libs/colorTheme";
+import { serviceLinks } from "@/constants/serviceLinks";
+import { colorTheme } from "@/libs/colorTheme";
 import { MoonIcon, SunIcon } from "@heroicons/react/24/solid";
-import { serviceConfig } from "../../constants/serviceConfig";
+import { serviceConfig } from "@/constants/serviceConfig";
 
 const ColorThemeButton = () => {
   const { theme, toggleTheme } = colorTheme.useTheme();
@@ -19,7 +19,7 @@ const ColorThemeButton = () => {
   );
 };
 
-export const Main = () => {
+export const TopPage = () => {
   return (
     <div className="flex h-screen justify-center items-center">
       <div className="absolute top-4 right-4">

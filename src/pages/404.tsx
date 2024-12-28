@@ -1,5 +1,5 @@
 import type { NextPage } from "next";
-import { MetaTag } from "../components/MetaTag";
+import { MetaTag } from "@/components/commons/MetaTag";
 
 const Page: NextPage = () => {
   return (

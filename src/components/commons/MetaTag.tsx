@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { serviceConfig } from "../../constants/serviceConfig";
+import { serviceConfig } from "@/constants/serviceConfig";
 
 export const MetaTag: React.FC<{
   title?: string;

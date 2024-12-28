@@ -1,8 +1,8 @@
 import type { NextPage } from "next";
-import { Main } from "../components/Main";
+import { TopPage } from "@/components/pages/TopPage";
 
 const Page: NextPage = (props) => {
-  return <Main />;
+  return <TopPage />;
 };
 
 export default Page;
