@@ -1,0 +1,30 @@
+---
+import Container from "@components/Container.astro";
+import Link from "@components/Link.astro";
+import { SITE } from "@consts";
+---
+
+<header transition:persist>
+  <Container>
+    <div class="flex flex-wrap justify-between gap-y-2">
+      <Link href="/" underline={false}>
+        <div class="flex items-center gap-2">
+          <img
+            src="/profile/icon.png"
+            width="32"
+            height="32"
+            class="rounded-full"
+          />
+          <div class="font-semibold">
+            {SITE.TITLE}
+          </div>
+        </div>
+      </Link>
+      <nav class="flex items-center gap-2 text-sm">
+        <Link href="/blog">ブログ</Link>
+        <Link href="/tags">タグ</Link>
+        <!-- <Link href="/projects">projects</Link> -->
+      </nav>
+    </div>
+  </Container>
+</header>

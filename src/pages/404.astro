@@ -1,0 +1,34 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Container from "@components/Container.astro";
+import BackToPrevious from "@components/BackToPrevious.astro";
+import { SITE } from "@consts";
+---
+
+<Layout title="404" description={SITE.DESCRIPTION}>
+  <Container>
+    <div class="animate mt-16 grid place-items-center gap-3">
+      <h4 class="text-2xl font-semibold">Not Found</h4>
+      <p class="mb-4 text-xs" id="not-found-message">そんなページはない</p>
+      <BackToPrevious href="/">トップページへ戻る</BackToPrevious>
+    </div>
+  </Container>
+</Layout>
+
+<script is:inline>
+  const messages = [
+    "そんなページはないよ",
+    "ページは消されたかも",
+    "ここ表示は何種類あるんだろうか",
+    "クソ豆知識: たぶんもっとも知られているHTTPステータスコードは404",
+    "旅に出ました。探さないでください。",
+    "あなたのうしろに...",
+    "お昼寝中です",
+    "🐈",
+    "🌵",
+    "💤",
+    "🍣",
+  ];
+  const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+  document.getElementById("not-found-message").textContent = randomMessage;
+</script>

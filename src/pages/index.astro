@@ -1,0 +1,155 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Container from "@components/Container.astro";
+import { SITE, HOME } from "@consts";
+import ArrowCard from "@components/ArrowCard.astro";
+import Link from "@components/Link.astro";
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+
+const blog = (await getCollection("blog"))
+  .filter((post) => !post.data.draft)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, SITE.NUM_POSTS_ON_HOMEPAGE);
+
+const serviceLinks: {
+  iconHref: string;
+  siteUrl: string;
+  alt: string;
+  size: number;
+  description: string;
+}[] = [
+  {
+    alt: "GitHub",
+    iconHref: "/icons/github.svg",
+    siteUrl: "https://github.com/redshoga",
+    size: 20,
+    description: "GitHub",
+  },
+  {
+    alt: "Zenn",
+    iconHref: "/icons/zenn.svg",
+    siteUrl: "https://zenn.dev/redshoga",
+    size: 20,
+    description: "技術記事",
+  },
+  // {
+  //   alt: "note",
+  //   iconHref: "/icons/note.svg",
+  //   siteUrl: "https://note.com/redshoga/",
+  //   size: 20,
+  //   description: "ブログ",
+  // },
+  {
+    alt: "Twitter",
+    iconHref: "/icons/twitter.svg",
+    siteUrl: "https://twitter.com/redshoga",
+    size: 20,
+    description: "つぶやき",
+  },
+  // {
+  //   alt: "Filmarks",
+  //   iconHref: "/icons/filmarks.png",
+  //   siteUrl: "https://filmarks.com/users/redshoga",
+  //   size: 28,
+  //   description: "映画",
+  // },
+  // {
+  //   alt: "pixiv",
+  //   iconHref: "/icons/pixiv.svg",
+  //   siteUrl: "https://www.pixiv.net/users/36954119",
+  //   size: 28,
+  //   description: "お絵かき",
+  // },
+  {
+    alt: "DM",
+    iconHref: "/icons/dm.svg",
+    siteUrl:
+      "https://www.twitter.com/messages/compose?recipient_id=929296428630867968",
+    size: 20,
+    description: "DM",
+  },
+];
+
+// const projects: CollectionEntry<"projects">[] = (
+//   await getCollection("projects")
+// )
+//   .filter((project) => !project.data.draft)
+//   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+//   .slice(0, SITE.NUM_PROJECTS_ON_HOMEPAGE);
+---
+
+<Layout description={HOME.DESCRIPTION}>
+  <Container>
+    <aside>
+      <!-- <h1 class="font-semibold text-black">redshoga.com</h1> -->
+      <div class="space-y-16">
+        <!-- <section class="animate space-y-6">
+          <p>redshogaのコンテンツ置き場です。</p>
+        </section> -->
+
+        <section class="animate space-y-6">
+          <div class="flex flex-wrap items-center justify-between gap-y-2">
+            <h2 class="font-semibold text-black">直近の投稿</h2>
+            <Link href="/blog">すべての投稿</Link>
+          </div>
+          <ul class="not-prose flex flex-col gap-4">
+            {
+              blog.map((post) => (
+                <li>
+                  <ArrowCard entry={post} />
+                </li>
+              ))
+            }
+          </ul>
+        </section>
+
+        <section class="animate space-y-6">
+          <div class="flex flex-wrap items-center justify-between gap-y-2">
+            <h2 class="font-semibold text-black">外部リンク</h2>
+          </div>
+          <ul class="flex flex-wrap gap-4">
+            {
+              serviceLinks.map((link) => (
+                <li>
+                  <a
+                    class="group flex flex-col items-center gap-1"
+                    href={link.siteUrl}
+                  >
+                    <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-black/5 group-hover:bg-black/10">
+                      <img
+                        src={link.iconHref}
+                        alt={link.alt}
+                        width={link.size}
+                        height={link.size}
+                      />
+                    </div>
+                    <div class="text-xs text-gray-600 group-hover:underline">
+                      {link.description}
+                    </div>
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </section>
+
+        <!-- <section class="animate space-y-6">
+          <div class="flex flex-wrap items-center justify-between gap-y-2">
+            <h2 class="font-semibold text-black">プロジェクト</h2>
+            <Link href="/projects">すべてのプロジェクト</Link>
+          </div>
+          <ul class="not-prose flex flex-col gap-4">
+            {
+              projects.map((project) => (
+                <li>
+                  <ArrowCard entry={project} />
+                </li>
+              ))
+            }
+          </ul>
+        </section> -->
+      </div>
+    </aside>
+  </Container>
+</Layout>
