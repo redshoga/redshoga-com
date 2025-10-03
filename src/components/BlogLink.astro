@@ -1,0 +1,36 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { TagIcon } from "@lucide/astro";
+import { formatDate } from "@lib/formatDate";
+import { Calendar1Icon } from "@lucide/astro";
+
+type Props = {
+  entry: CollectionEntry<"blogs">;
+};
+
+const { entry } = Astro.props;
+---
+
+<a
+  href={`/${entry.collection}/${entry.id}`}
+  class="block rounded-md border-2 border-neutral-900 px-4 py-4 hover:opacity-50"
+>
+  <div class="flex flex-col gap-2 truncate">
+    <div class="font-semibold">
+      {entry.data.title}
+    </div>
+    {
+      (entry.data.tags?.length || 0) > 0 && (
+        <div class="flex items-center gap-1 text-xs">
+          <TagIcon size={14} />
+          {entry.data.tags?.join(", ")}
+        </div>
+      )
+    }
+
+    <div class="flex items-center gap-1 text-xs">
+      <Calendar1Icon size={14} />
+      {formatDate(entry.data.date)}
+    </div>
+  </div>
+</a>

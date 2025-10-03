@@ -1,0 +1,45 @@
+---
+import { render } from "astro:content";
+import Layout from "@layouts/Layout.astro";
+import { formatDate } from "@lib/formatDate";
+import { getAllBlogs } from "@lib/getAllBlogs";
+import TagLink from "@components/TagLink.astro";
+
+export async function getStaticPaths() {
+  const blogs = await getAllBlogs();
+  return blogs.map((blog) => ({
+    params: { id: blog.id },
+    props: blog,
+  }));
+}
+const post = Astro.props;
+const { Content } = await render(post);
+---
+
+<Layout title={post.data.title}>
+  <div class="my-10 space-y-1">
+    <div class="font-base text-sm">
+      <time datetime={post.data.date.toISOString()}>
+        {formatDate(post.data.date)}
+      </time>
+    </div>
+    <h1 class="text-3xl font-semibold">
+      {post.data.title}
+    </h1>
+
+    {
+      post.data.tags && post.data.tags?.length > 0 ? (
+        <ul class="flex gap-2 pt-1">
+          {post.data.tags.map((tag) => (
+            <li>
+              <TagLink name={tag} />
+            </li>
+          ))}
+        </ul>
+      ) : null
+    }
+  </div>
+  <article>
+    <Content />
+  </article>
+</Layout>

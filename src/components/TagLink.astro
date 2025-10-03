@@ -1,0 +1,18 @@
+---
+import { TagIcon } from "@lucide/astro";
+type Props = {
+  name: string;
+  count?: number;
+};
+
+const { name, count } = Astro.props;
+---
+
+<a
+  href={`/tags/${name}`}
+  class="flex items-center gap-1 rounded-full border border-neutral-900 px-2 py-1 text-sm hover:opacity-50"
+>
+  <TagIcon size={16} />
+  {name}
+  {(count || 0 > 0) && <> ({count})</>}
+</a>

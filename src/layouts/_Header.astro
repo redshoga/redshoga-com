@@ -1,0 +1,32 @@
+---
+import { SITE } from "@consts";
+import { GithubIcon, TwitterIcon } from "@lucide/astro";
+---
+
+<header transition:persist class="border-b-2 border-neutral-900 py-6">
+  <div class="mx-auto max-w-screen-sm px-3">
+    <div class="flex flex-wrap justify-between gap-y-2">
+      <a href="/" class="hover:opacity-50">
+        <div class="flex items-center gap-2">
+          <img src="/favicon.png" width="32" height="32" />
+          <div class="font-semibold">
+            {SITE.TITLE}
+          </div>
+        </div>
+      </a>
+
+      <ul class="c flex items-center gap-2">
+        <li>
+          <a href="https://github.com/redshoga" class="hover:opacity-50"
+            ><GithubIcon /></a
+          >
+        </li>
+        <li>
+          <a href="https://x.com/redshoga" class="hover:opacity-50"
+            ><TwitterIcon /></a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+</header>
